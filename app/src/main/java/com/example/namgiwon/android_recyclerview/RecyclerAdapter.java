@@ -7,7 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * Created by namgiwon on 2018. 1. 23..
@@ -25,10 +29,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ItemViewHolder>{
         Log.d("시발","add해줘");
         this.items.add(item);
         notifyItemInserted(items.size()-1);
-
-
-//            }
-//        }
     }
 
     @Override
@@ -42,9 +42,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ItemViewHolder>{
         ListviewVO item = items.get(position);
         holder.name.setText(item.getName());
         holder.sno.setText(item.getSno());
-        holder.image.setImageResource(R.mipmap.ic_launcher_round);
-        BringPhoto bp = new BringPhoto(item.getImgPath(),holder.image);
-        bp.execute();
+
+        //Glide 라이브러리를 사용한 이미지 로딩  (은근 더 빠른것 같다)
+//        Glide.with(context).load(item.getImgPath()).into(holder.image);
+        Glide.with(context).load(item.getImgPath()).bitmapTransform(new CropCircleTransformation(context)).into(holder.image);
+
+//        holder.image.setImageResource(R.mipmap.ic_launcher_round);
+//        BringPhoto bp = new BringPhoto(item.getImgPath(),holder.image);
+//        bp.execute();
     }
 
     @Override

@@ -35,7 +35,7 @@ public class BringPhoto extends AsyncTask<Void,Void,Bitmap>{
             conn.connect();
 
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 4;
+            options.inSampleSize = 8;
 
             InputStream is = conn.getInputStream();
             bmImg = BitmapFactory.decodeStream(is,null,options);
