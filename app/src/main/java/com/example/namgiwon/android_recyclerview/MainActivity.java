@@ -34,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
         items = new ArrayList<ListviewVO>();
         ListviewVO a = new ListviewVO();
         a.setName("nam");
-        a.setSno("2013301018");
-        a.setImgPath("http://117.17.142.134:8080/img/no.jpg");
+        a.setSno("0");
+        a.setImgPath("http://117.17.142.134:8080/img/0.jpg");
         ListviewVO b = new ListviewVO();
         b.setName("choi");
-        b.setSno("2013301072");
-        b.setImgPath("http://117.17.142.134:8080/img/no.jpg");
+        b.setSno("1");
+        b.setImgPath("http://117.17.142.134:8080/img/1.jpg");
         items.add(a);
         items.add(b);
 
@@ -75,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("asdf","asdfasdf");
                     ListviewVO c = new ListviewVO();
                     c.setName("kim");
-                    c.setSno("2013301082");
-                    c.setImgPath("http://117.17.142.134:8080/img/no.jpg");
+                    c.setSno(String.valueOf(items.size()));
+                    c.setImgPath("http://117.17.142.134:8080/img/"+c.getSno()+".jpg");
 //                    items.add(c);
                     Log.d("asdf",String.valueOf(items.size()));
                     adapter.add(c);

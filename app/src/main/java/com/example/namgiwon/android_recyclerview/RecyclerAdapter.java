@@ -42,6 +42,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ItemViewHolder>{
         ListviewVO item = items.get(position);
         holder.name.setText(item.getName());
         holder.sno.setText(item.getSno());
+        holder.image.setImageResource(R.mipmap.ic_launcher_round);
         BringPhoto bp = new BringPhoto(item.getImgPath(),holder.image);
         bp.execute();
     }
